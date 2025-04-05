@@ -21,12 +21,15 @@ define('WC_MULTI_STORE_URL', plugin_dir_url(__FILE__));
 
 // Check if WooCommerce is active
 if (!class_exists('WooCommerce')) {
+    error_log('WooCommerce Multi-Store: WooCommerce class not found');
     add_action('admin_notices', function() {
         echo '<div class="error"><p>';
         _e('WooCommerce Multi-Store requires WooCommerce to be installed and active!', 'wc-multi-store');
         echo '</p></div>';
     });
     return;
+} else {
+    error_log('WooCommerce Multi-Store: WooCommerce detected, version: ' . (function_exists('WC') ? WC()->version : 'WC() not available'));
 }
 
 // Load the main plugin class
