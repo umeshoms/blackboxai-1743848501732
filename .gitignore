@@ -1,6 +1,15 @@
-node_modules
-vendor
-*.log
+# IDE files
+*.code-workspace
+.idea/
+.vscode/
+
+# System files
 .DS_Store
-.idea
-wp-content/uploads
+Thumbs.db
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Log files
+*.log
