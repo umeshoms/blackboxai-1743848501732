@@ -1,0 +1,50 @@
+/* Store Change Button */
+.wc-store-change-button-container {
+    margin: 15px 0;
+}
+
+.wc-store-change-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wc-store-change-button:hover {
+    background-color: #e0e0e0;
+}
+
+.wc-store-change-button.loading .dashicons {
+    animation: spin 1s linear infinite;
+}
+
+/* Popup Overlay */
+.wc-store-selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9998;
+}
+
+/* Popup Selector */
+.wc-store-selector-popup {
+    max-width: 90%;
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
