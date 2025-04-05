@@ -5,8 +5,19 @@ if (!defined('ABSPATH')) {
 
 class WC_Multi_Store_Init {
     public function __construct() {
+        error_log('WooCommerce Multi-Store: Plugin initialization started');
+        
+        // Verify WooCommerce is loaded
+        if (!class_exists('WooCommerce')) {
+            error_log('WooCommerce Multi-Store: ERROR - WooCommerce not loaded');
+            return;
+        }
+        error_log('WooCommerce Multi-Store: WooCommerce version ' . WC()->version);
+        
         // Load dependencies
+        error_log('WooCommerce Multi-Store: Loading dependencies');
         $this->load_dependencies();
+        error_log('WooCommerce Multi-Store: Dependencies loaded');
 
         // Initialize components
         $this->init_components();
