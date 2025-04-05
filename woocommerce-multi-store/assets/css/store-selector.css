@@ -1,0 +1,187 @@
+/* Main Store Selector Container */
+.wc-store-selector-container {
+    margin: 0 0 20px;
+    position: relative;
+    z-index: 100;
+}
+
+/* Store Selector Dropdown */
+.wc-store-selector {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Current Store Display */
+.wc-store-selector-current {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wc-store-selected-name {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.wc-store-selected-address {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.wc-store-not-selected {
+    color: #999;
+    font-style: italic;
+}
+
+.wc-store-selector-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Dropdown Content */
+.wc-store-selector-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.wc-store-selector-dropdown.active {
+    display: block;
+}
+
+/* Actions Bar */
+.wc-store-selector-actions {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.wc-store-selector-actions .button {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.9em;
+}
+
+/* Map Container */
+.wc-store-selector-map {
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+/* Store List */
+.wc-store-selector-list {
+    padding: 0;
+    margin: 0;
+}
+
+.wc-store-item {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.wc-store-item:last-child {
+    border-bottom: none;
+}
+
+.wc-store-item:hover {
+    background: #f9f9f9;
+}
+
+.wc-store-info {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.wc-store-name {
+    margin: 0 0 5px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.wc-store-address {
+    margin: 0 0 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.wc-store-distance {
+    margin: 0;
+    font-size: 0.85em;
+    color: #999;
+}
+
+.wc-store-select-button {
+    padding: 6px 12px;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.wc-store-select-button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .wc-store-selector-dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 60vh;
+        border-radius: 0;
+    }
+
+    .wc-store-selector-map {
+        height: 150px;
+    }
+}
+
+/* WooCommerce Integration */
+.woocommerce-cart .wc-store-selector-container,
+.woocommerce-checkout .wc-store-selector-container {
+    margin-bottom: 2em;
+}
+
+.woocommerce-cart .wc-store-selector,
+.woocommerce-checkout .wc-store-selector {
+    max-width: 100%;
+}
+
+/* Loading State */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading .dashicons {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
