@@ -11,6 +11,7 @@ class WC_Store_Post_Type {
     }
 
     public function register_post_type() {
+        error_log('Registering wc_store post type'); // Debug
         $labels = array(
             'name' => __('Stores', 'wc-multi-store'),
             'singular_name' => __('Store', 'wc-multi-store'),
@@ -32,6 +33,16 @@ class WC_Store_Post_Type {
             'publicly_queryable' => false,
             'show_ui' => true,
             'show_in_menu' => 'woocommerce',
+            'capabilities' => array(
+                'edit_post' => 'manage_woocommerce',
+                'read_post' => 'manage_woocommerce',
+                'delete_post' => 'manage_woocommerce',
+                'edit_posts' => 'manage_woocommerce',
+                'edit_others_posts' => 'manage_woocommerce',
+                'publish_posts' => 'manage_woocommerce',
+                'read_private_posts' => 'manage_woocommerce',
+                'create_posts' => 'manage_woocommerce'
+            ),
             'query_var' => true,
             'rewrite' => false,
             'capability_type' => 'post',
